@@ -1,0 +1,163 @@
+/* ---------- Page1 Full-Screen Layout ---------- */
+.page1-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh; /* Full viewport height */
+    padding: 0 8%;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+/* ---------- Left Section (Text) ---------- */
+.left {
+    flex: 1;
+    text-align: left;
+    animation: fadeInLeft 1.5s ease-in-out;
+}
+
+.lefttext h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.lefttext .highlight {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.lefttext p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+
+/* Download CV Button */
+.cv-button {
+    background: #ffcc00;
+    color: #000;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cv-button:hover {
+    background: #ffdd44;
+    transform: scale(1.05);
+}
+
+/* ---------- Right Section (Image) ---------- */
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 1.5s ease-in-out;
+}
+
+.rightimg {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
+    animation: floating 3s infinite ease-in-out;
+}
+
+.rightimg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Floating Animation */
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Fade-In Animations */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 1024px) {
+    .page1-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 5% 5%;
+    }
+
+    .left {
+        text-align: center;
+    }
+
+    .rightimg {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .lefttext h1 {
+        font-size: 2.8rem;
+    }
+
+    .lefttext p {
+        font-size: 1.2rem;
+    }
+
+    .cv-button {
+        font-size: 16px;
+    }
+
+    .rightimg {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .lefttext h1 {
+        font-size: 2.2rem;
+    }
+
+    .lefttext p {
+        font-size: 1rem;
+    }
+
+    .cv-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .rightimg {
+        width: 80%;
+    }
+}
+
+/* ---------- Stylish HR (Separator) ---------- */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #ffcc00, #ffffff, #ffcc00);
+    width: 60%;
+    margin: 0px auto;
+    opacity: 0.8;
+    display: block; /* Ensures it's always visible */
+}
+

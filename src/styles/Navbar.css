@@ -1,0 +1,126 @@
+/* 📌 Base Navbar Styles */
+.Navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+
+/* ✨ Navbar Title Styling */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.title:hover {
+  color: yellow;
+}
+
+/* 📌 Menu Links */
+.menu ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.menu ul li {
+  margin: 0;
+}
+
+.menu ul a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu ul a:hover {
+  color: yellow;
+}
+
+/* ✨ Underline Effect on Hover */
+.menu ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: yellow;
+  transition: all 0.3s ease;
+}
+
+.menu ul a:hover::after {
+  width: 100%;
+}
+
+/* 📱 Responsive Mobile Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+/* 📌 Mobile Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 15px 0;
+    display: none;
+    flex-direction: column;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .menu ul a {
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+    width: 100%;
+  }
+
+  .menu ul a:hover {
+    background: yellow;
+    color: black;
+  }
+}
+
+/* 💻 Adjustments for Larger Screens */
+@media (min-width: 1024px) {
+  .Navbar {
+    padding: 1.2rem 8%;
+  }
+}

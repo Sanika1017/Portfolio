@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "outfit",Arial, Helvetica, sans-serif;
+}
+
+:root {
+  /* colours */
+  --color-text:#fff;
+  --color-primary:#576cbc;
+  --color-secondary:#19376d;
+  --color-dark:#0b2447;
+  --color-bg:#04152d;
+
+
+  /*font*/
+  --font-robot:"Roboto";
+}
