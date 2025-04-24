@@ -1,163 +1,227 @@
-/* ---------- Page1 Full-Screen Layout ---------- */
-.page1-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh; /* Full viewport height */
-    padding: 0 8%;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: #fff;
+/* src/styles/page1.css */
+
+
+/* src/styles/page1.css */
+
+.canvas-container {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at center, #0b0c2a 0%, #050518 100%);
+  overflow: hidden;
+  position: relative;
 }
 
-/* ---------- Left Section (Text) ---------- */
-.left {
-    flex: 1;
-    text-align: left;
-    animation: fadeInLeft 1.5s ease-in-out;
+.tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-in-out;
+  pointer-events: none;
 }
 
-.lefttext h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.lefttext .highlight {
-    color: #ffcc00;
-    font-weight: bold;
+
+
+
+/* src/styles/page1.css */
+
+.canvas-container {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at center, #0b0c2a 0%, #050518 100%);
+  overflow: hidden;
+  position: relative;
 }
 
-.lefttext p {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    max-width: 550px;
-    margin-bottom: 20px;
+.tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-in-out;
+  pointer-events: none;
 }
 
-/* Download CV Button */
-.cv-button {
-    background: #ffcc00;
-    color: #000;
-    font-size: 18px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.3s;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.cv-button:hover {
-    background: #ffdd44;
-    transform: scale(1.05);
+.tooltip.show-always {
+  display: block !important;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  border: 1px solid #ccc;
 }
 
-/* ---------- Right Section (Image) ---------- */
-.right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    animation: fadeInRight 1.5s ease-in-out;
+/* src/styles/LeftTextPage1.css */
+
+.left-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  margin-bottom: 300px;
 }
 
-.rightimg {
-    width: 80%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
-    animation: floating 3s infinite ease-in-out;
+.greeting {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #008bff;
+  margin: 0;
 }
 
-.rightimg img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 50%;
+.name {
+  font-size: 7rem;
+  font-weight: 800;
+  margin: 0;
+  background:white;
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s ease infinite;
 }
 
-/* Floating Animation */
-@keyframes floating {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
 }
 
-/* Fade-In Animations */
-@keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
+.description {
+  font-size: 2.5rem;
+  color: white;
+  margin-top: 1rem;
 }
 
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
+.sub-description {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 0.8rem;
 }
 
-/* ---------- Responsive Design ---------- */
-@media (max-width: 1024px) {
-    .page1-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 5% 5%;
-    }
-
-    .left {
-        text-align: center;
-    }
-
-    .rightimg {
-        width: 60%;
-    }
+.skills {
+  font-size: 2.5rem;
+  color: #008bff;
+  margin-top: 1.2rem;
 }
 
-@media (max-width: 768px) {
-    .lefttext h1 {
-        font-size: 2.8rem;
-    }
-
-    .lefttext p {
-        font-size: 1.2rem;
-    }
-
-    .cv-button {
-        font-size: 16px;
-    }
-
-    .rightimg {
-        width: 70%;
-    }
+.download-btn {
+  margin-top: 2rem;
+  padding: 0.7rem ;
+  width: 280px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right, #6b21a8, #6366f1, #6b21a8);
+  color: black;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-@media (max-width: 480px) {
-    .lefttext h1 {
-        font-size: 2.2rem;
-    }
-
-    .lefttext p {
-        font-size: 1rem;
-    }
-
-    .cv-button {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    .rightimg {
-        width: 80%;
-    }
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* ---------- Stylish HR (Separator) ---------- */
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, #ffcc00, #ffffff, #ffcc00);
-    width: 60%;
-    margin: 0px auto;
-    opacity: 0.8;
-    display: block; /* Ensures it's always visible */
+.download-btn:active {
+  transform: scale(0.95);
 }
 
+
+/* styles/Rightimgpage1.css */
+.video-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-video {
+  width: 90%;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  object-fit: cover;
+}
+
+/* page1.css */
+
+
+
+.page1-wrapper {
+
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+ 
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.page1-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5%;
+  height: 100%;
+  color: white;
+}
+
+.right-img-container {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background-color: pink;
+  overflow: hidden;
+  border-radius: 12px; /* Optional, for smooth corners */
+}
+
+.right-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3; /* Adjust for desired visibility */
+}

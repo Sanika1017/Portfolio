@@ -1,126 +1,81 @@
-/* 📌 Base Navbar Styles */
-.Navbar {
+/* Base navbar styles */
+.navbar {
   width: 100%;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f0f0f;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(128, 0, 255, 0.2);
+
+}
+
+/* Logo section */
+.navbar-logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 5%;
-  z-index: 1000;
-  transition: all 0.3s ease-in-out;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  gap: 0.5rem;
+  font-size: 1.25rem;
 }
 
-
-/* ✨ Navbar Title Styling */
-.title {
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
+.logo-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
 }
 
-.title:hover {
-  color: yellow;
+.logo-highlight {
+  color: #60a5fa; /* Tailwind blue-400 */
 }
 
-/* 📌 Menu Links */
-.menu ul {
+/* Center glowing tabs */
+.navbar-tabs-wrapper {
+  background: linear-gradient(to right, #6b21a8, #6366f1, #6b21a8);
+  width: 550px;
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(128, 0, 255, 0.6);
+}
+
+.navbar-tabs {
   display: flex;
-  gap: 2.5rem;
-  list-style: none;
+  gap: 1.25rem;
+  background-color: #0f0f0f;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  height: 40px;
+ 
 }
 
-.menu ul li {
-  margin: 0;
-}
-
-.menu ul a {
-  text-decoration: none;
+.tab-button {
+  background: none;
+  border: none;
   color: white;
-  font-size: 1.1rem;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.menu ul a:hover {
-  color: yellow;
-}
-
-/* ✨ Underline Effect on Hover */
-.menu ul a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background-color: yellow;
-  transition: all 0.3s ease;
-}
-
-.menu ul a:hover::after {
-  width: 100%;
-}
-
-/* 📱 Responsive Mobile Menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
   cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 20px;
 }
 
-.hamburger div {
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  border-radius: 3px;
+.tab-button:hover {
+  color: #c084fc; /* Tailwind purple-300 */
 }
 
-/* 📌 Mobile Menu */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .menu {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    text-align: center;
-    padding: 15px 0;
-    display: none;
-    flex-direction: column;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .menu ul a {
-    font-size: 1.2rem;
-    padding: 10px;
-    display: block;
-    width: 100%;
-  }
-
-  .menu ul a:hover {
-    background: yellow;
-    color: black;
-  }
+/* Social icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* 💻 Adjustments for Larger Screens */
-@media (min-width: 1024px) {
-  .Navbar {
-    padding: 1.2rem 8%;
-  }
+.navbar-icons a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar-icons a:hover {
+  color: #c084fc;
 }

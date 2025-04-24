@@ -1,186 +1,168 @@
-/* ---------- Page2 Container ---------- */
 .page2-container {
-    text-align: center;
-    padding: 50px 5%;
-    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-    color: white;
-    min-height: 100vh;  /* Changed from height to min-height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 50px;
+ margin-left: 230px;
+  color: white;
+  text-align: center;
 }
 
-/* ---------- Section Title ---------- */
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    color: yellow;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* ---------- Horizontal Layout ---------- */
 .about-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-}
-.profile-animation {
-    width: 100%;
-    max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
+.photo-wrapper img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 
-/* ---------- Profile Image (Match About Card Height) ---------- */
-.profile-container {
-    flex: 0.3;
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Ensures the image stretches to match the card height */
 }
 
-/* ---------- Profile Image (Match About Card Height) ---------- */
-.profile-image {
-    width: 100%;
-    max-width: 300px;
-    height: 100%; /* Matches the height of the about card */
-    border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Matches about card shadow */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Matches hover effect of about card */
-}
-
-/* ---------- About Card (70% Width) ---------- */
 .about-card {
-    flex: 0.7;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 25px;
-    border-radius: 12px;
-    text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Ensures text stays centered */
-    height: 100%; /* Ensures height consistency */
+  max-width: 500px;
+  height: 400px;
+  text-align: left;
+ 
+  padding: 20px;
+  border-radius: 20px;
+
+ 
 }
 
+.page2-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.25; /* Adjust for visibility */
+}
+
+.page2-container {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+   /* semi-transparent overlay for better contrast */
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+
+/* === Enhanced About Section === */
+.about-card {
+  max-width: 550px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  color: #e0e0e0;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 .about-card:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
 }
 
-/* ---------- Intro Text ---------- */
-.intro-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* === Glowing Image Hover === */
+.photo-wrapper {
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
-/* ---------- Highlighted Name ---------- */
+.photo-wrapper img {
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.photo-wrapper img:hover {
+  transform: scale(1.05) rotate(1deg);
+ 
+}
+
+/* === Highlight Text === */
 .highlight {
-    color: yellow;
+  color: #0ff;
+  font-weight: bold;
+  text-shadow: 0 0 8px #0ff;
 }
 
-/* ---------- Personal Information ---------- */
+/* === Section Headings === */
+.section-title {
+  font-size: 2.8rem;
+  color: #fff;
+  text-shadow: 0 0 10px #9f42f5;
+}
+
+/* === Personal Info Header === */
 .personal {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
-    color: yellow;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
 }
 
-.info-list ul {
-    list-style: none;
-    padding: 0;
+/* === List Items === */
+.info-list li,
+.hobbies ul li {
+  margin: 8px 0;
+  list-style: none;
+  font-size: 1rem;
 }
 
-.info-list li {
-    font-size: 16px;
-    margin: 10px 0;
+.info-list span {
+  color: #9f42f5;
+  font-weight: bold;
 }
 
-.info-list li span {
-    font-weight: bold;
-    color: #007bff;
-}
-
-/* ---------- Hobbies & Interests ---------- */
-.hobbies ul {
-    list-style: none;
-    padding: 0;
-}
-
-.hobbies li {
-    font-size: 16px;
-    margin: 5px 0;
-    display: flex;
-    align-items: center;
-}
-
-.hobbies li::before {
-    content: "⭐";
-    margin-right: 8px;
-    color: yellow;
-}
-
-/* ---------- Social Media Links ---------- */
 .social-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    transition: color 0.3s, transform 0.2s ease-in-out;
-}
-
-.social-links a:hover {
-    color: yellow;
-    transform: scale(1.1);
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .social-icon {
-    margin-right: 8px;
-    font-size: 1.3rem;
+  margin-right: 8px;
+  color: #0ff;
+  transition: color 0.3s ease;
 }
 
-/* ---------- Responsive Design ---------- */
-@media (max-width: 900px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-container {
-        flex: none;
-    }
-
-    .profile-image {
-        width: 250px;
-        height: 250px;
-    }
-
-    .about-card {
-        flex: none;
-        width: 90%;
-        text-align: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
 }
+
+.social-links a:hover .social-icon {
+  color: #9f42f5;
+}
+
+
+
+/* in Projects.css */
+.project-card img {
+  background-color: #000;      /* or whatever fits your design */
+  padding: 8px;                /* optional, gives some breathing room */
+  border-radius: 8px;          /* optional rounding */
+}
+
+
+

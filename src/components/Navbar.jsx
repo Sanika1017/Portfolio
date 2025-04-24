@@ -1,44 +1,41 @@
-import React, { useState, useEffect } from "react";
-import "../styles/Navbar.css";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import '../styles/Navbar.css';
 
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // Activate only after scrolling down
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+export default function Navbar() {
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
-    <nav className={`Navbar ${scrolled ? "scrolled" : ""}`}>
-      <a className="title" href="#home">
-        Sanika's Portfolio
-      </a>
-
-      {/* Hamburger Menu (Mobile) */}
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-        <div></div>
-        <div></div>
-        <div></div>
+    <nav className="navbar">
+      {/* Logo */}
+      <div className="navbar-logo">
+        <img src="/logo.png" alt="logo" className="logo-img" />
+        <span>
+          <span className="logo-highlight">Sanika</span>
+        </span>
       </div>
 
-      {/* Navigation Menu */}
-      <div className={`menu ${menuOpen ? "show" : ""}`}>
-        <ul>
-          <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
-          <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-          <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-        </ul>
+      {/* Center Tabs */}
+      <div className="navbar-tabs-wrapper">
+        <div className="navbar-tabs">
+          <button className="tab-button" onClick={() => handleScroll('home')}>Home</button>
+          <button className="tab-button" onClick={() => handleScroll('page2')}>About</button>
+          <button className="tab-button" onClick={() => handleScroll('skills')}>Skills</button>
+          <button className="tab-button" onClick={() => handleScroll('projects')}>Projects</button>
+          <button className="tab-button" onClick={() => handleScroll('page5')}>Experience</button>
+          <button className="tab-button" onClick={() => handleScroll('contact')}>Contact</button>
+        </div>
+      </div>
+
+      {/* Social Icons */}
+      <div className="navbar-icons">
+        <a href="#"><FaGithub size={20} /></a>
+        <a href="#"><FaLinkedin size={20} /></a>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

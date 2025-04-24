@@ -1,10 +1,21 @@
 import React from 'react';
 import '../styles/Page2.css';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Page22 = () => {
+  const { ref, inView } = useInView({ triggerOnce: true });
+
   return (
-    <div className="about-card">
+    <motion.div
+      ref={ref}
+      initial={{ x: 200, opacity: 0 }}
+      animate={inView ? { x: 0, opacity: 1 } : {}}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="about-card"
+      style={{ marginRight: "100px" }}
+    >
       <p className="intro-text">
         Hi! I'm <span className="highlight">Sanika</span>, a passionate Computer Engineering student who loves coding, 
         problem-solving, and building cool projects. 🚀
@@ -29,7 +40,6 @@ const Page22 = () => {
         </ul>
       </div>
 
-      {/* 🔹 Hobbies & Interests */}
       <div className="hobbies">
         <p className="personal">Hobbies & Interests</p>
         <ul>
@@ -40,16 +50,12 @@ const Page22 = () => {
         </ul>
       </div>
 
-      {/* 🔹 Social Media Links */}
-      <div className="social-links">
-        <a href="https://www.linkedin.com/in/sanika" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin className="social-icon" /> LinkedIn
-        </a>
-        <a href="https://github.com/sanika" target="_blank" rel="noopener noreferrer">
-          <FaGithub className="social-icon" /> GitHub
-        </a>
+      <div  style={{marginTop:"20px"}}className="social-links">
+      
+
+        
       </div>
-    </div>
+    </motion.div>
   );
 };
 

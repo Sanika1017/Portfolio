@@ -1,12 +1,22 @@
 import React from 'react';
 import '../styles/page1.css';
+import hero from '../images/hero.mp4';
 
-const RightImgPage1 = () => {
+const Rightimgpage1 = () => {
   return (
-    <div className='rightimg'>
-        <img src="https://img.freepik.com/premium-photo/cute-cartoon-girl-with-magic-book-clean-white-background-children-s-style_994764-191157.jpg" alt="Sanika" />
+    <div className="right-img-container w-100">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="right-bg-video"
+      >
+        <source src={hero} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
-}
+};
 
-export default RightImgPage1;
+export default Rightimgpage1;

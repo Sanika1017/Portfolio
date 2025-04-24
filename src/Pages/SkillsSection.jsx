@@ -1,73 +1,64 @@
-import React, { useState } from "react";
-import SkillBar from "../components/SkillBar"; 
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaDatabase, FaGitAlt, FaDocker, FaNodeJs } from "react-icons/fa";
+import React from "react";
 import "../styles/SkillsSection.css";
+import brainImage from "../images/brain.png";
+import galaxy from '../images/galaxy.mp4';
 
-// Move skill categories outside to prevent re-creation on re-renders
-const skillCategories = {
-  frontend: [
-    { name: "HTML", level: 90, icon: <FaHtml5 className="icon html" />, description: "Structuring web content efficiently." },
-    { name: "CSS", level: 85, icon: <FaCss3Alt className="icon css" />, description: "Designing responsive and modern UI." },
-    { name: "JavaScript", level: 80, icon: <FaJs className="icon js" />, description: "Building interactive web applications." },
-    { name: "React", level: 75, icon: <FaReact className="icon react" />, description: "Creating scalable UI components." },
-  ],
-  backend: [
-    { name: "Node.js", level: 70, icon: <FaNodeJs className="icon node" />, description: "Building scalable server-side apps." },
-    { name: "Express", level: 65, icon: <FaDatabase className="icon db" />, description: "Creating robust REST APIs." },
-    { name: "MongoDB", level: 60, icon: <FaDatabase className="icon db" />, description: "Managing NoSQL databases effectively." },
-  ],
-  tools: [
-    { name: "Git", level: 90, icon: <FaGitAlt className="icon git" />, description: "Version control & collaboration." },
-    { name: "Docker", level: 80, icon: <FaDocker className="icon docker" />, description: "Containerizing applications efficiently." },
-  ],
-};
+const skills = [
+  { name: "HTML", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "JavaScript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "Bootstrap", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+  { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Java", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Node.js", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+];
 
-const SkillsSection = () => {
-  const [category, setCategory] = useState("frontend");
-
+export default function SkillSection() {
   return (
-    <section className="skills-section">
-      <div className="skills-intro">
-        <h2>My Technical Skills</h2>
-        <p>Passionate about web development and always learning new technologies. Explore my key skills across different domains.</p>
+    <section className="skill-section">
+
+      {/* 🌌 Background Video */}
+     <video className="background-video" autoPlay loop muted playsInline>
+                   <source src={galaxy} type="video/mp4" />
+                   Your browser does not support the video tag.
+                 </video>
+                
+                 <h1 className="skills-heading">My Skills</h1>
+      {/* ✨ Content */}
+      <div className="text-panel left">
+        <h2 className="gradient-title">
+          Developer <span className="icon">💻</span>
+        </h2>
+        <p>
+          I have expertise in HTML, CSS, JavaScript, and frameworks like React and Node.js. My strength lies in blending aesthetics with functionality to create seamless user experiences.
+        </p>
       </div>
 
-      {/* Circular Progress Bar */}
-      <div className="progress-wheel">
-        <div className="circular-progress">
-          <div className="inner-circle">
-            <span>85%</span>
+      <div className="brain-panel">
+        <img src={brainImage} alt="Brain" className="brain-img" />
+        <div className="skills-scroll">
+          <div className="scroll-wrapper">
+            {skills.concat(skills).map((skill, index) => (
+              <img
+                key={index}
+                src={skill.url}
+                alt={skill.name}
+                title={skill.name}
+                className="skill-icon"
+              />
+            ))}
           </div>
         </div>
-        <p>Overall Proficiency</p>
       </div>
 
-      {/* Skill Categories */}
-      <div className="category-buttons">
-        {Object.keys(skillCategories).map((key) => (
-          <button 
-            key={key} 
-            onClick={() => setCategory(key)} 
-            className={category === key ? "active" : ""}
-          >
-            {key.charAt(0).toUpperCase() + key.slice(1)}
-          </button>
-        ))}
-      </div>
-
-      {/* Skills Grid */}
-      <div className="skills-grid">
-        {skillCategories[category].map((skill) => (
-          <div key={skill.name} className="skill-card">
-            {skill.icon}
-            <h3>{skill.name}</h3>
-            <p className="tooltip">{skill.description}</p> {/* Skill description */}
-            <SkillBar level={skill.level} />
-          </div>
-        ))}
+      <div className="text-panel right">
+        <h2 className="gradient-title">
+          Coder <span className="icon">👨‍💻</span>
+        </h2>
+        <p>
+          I'm skilled in frontend and backend technologies, including MongoDB and MySQL. I build complete web solutions with clean, scalable code.
+        </p>
       </div>
     </section>
   );
-};
-
-export default SkillsSection;
+}
