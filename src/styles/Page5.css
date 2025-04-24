@@ -1,99 +1,360 @@
 .exp-cert-section {
-  background-color: #000;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  text-shadow: 0 0 10px #8e44ff;
-}
-
-.tab-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
-}
-
-.tab-buttons button {
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  background: #111;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
   color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-  border: 2px solid #8e44ff;
+  overflow: hidden;
 }
 
-.tab-buttons .active {
-  background: linear-gradient(90deg, #8e44ff, #3c40c6);
-  box-shadow: 0 0 15px #8e44ff;
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.card {
-  background: #111;
-  border: 1px solid #8e44ff;
-  border-radius: 15px;
-  padding: 1.2rem;
-  margin: 1rem auto;
-  max-width: 500px;
-  box-shadow: 0 0 10px rgba(142, 68, 255, 0.3);
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.02);
-}
-
-.card h3 {
-  margin-bottom: 0.8rem;
-  color: #00acee;
-}
-
-.view-button {
-  background: #8e44ff;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.view-button:hover {
-  background: #3c40c6;
-  box-shadow: 0 0 10px #8e44ff;
-}
-
-.show-more {
-  margin-top: 1rem;
-  background: transparent;
-  border: 1px solid #00acee;
-  color: #00acee;
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.show-more:hover {
-  background: #00acee;
-  color: #000;
-}
-.bg-video {
+.background-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
-  opacity: 0.25; /* Adjust for visibility */
+  opacity: 0.4;
+}
+
+.stars-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Achievements Grid */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.achievement-icon {
+  color: #41b3ff;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+
+.achievement-label {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  background: rgb(30, 29, 29);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, rgba(255, 77, 207, 0.2), rgba(65, 179, 255, 0.2));
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(65, 179, 255, 0.2);
+}
+
+/* Experience Cards */
+.experience-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.experience-card {
+  background: rgb(30, 29, 29);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  background: rgb(45 , 44 , 44)
+}
+
+.experience-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #41b3ff;
+}
+
+.company-name {
+  display: block;
+  font-size: 1.1rem;
+  color: #ff4dcf;
+  margin-bottom: 0.5rem;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 1rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.experience-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.experience-content {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.achievements-list h4,
+.technologies-used h4 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.achievements-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: rgba(65, 179, 255, 0.1);
+  border: 1px solid rgba(65, 179, 255, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #41b3ff;
+}
+
+/* Certificate Cards */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.certificate-card {
+  background: rgb(30, 29, 29);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  background: rgb(45, 44, 44);
+}
+
+.certificate-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.certificate-icon {
+  color: #ff4dcf;
+  margin-bottom: 1rem;
+}
+
+.certificate-header h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.issuer {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.credential-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.certificate-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+  background: rgba(255, 77, 207, 0.1);
+  border: 1px solid rgba(255, 77, 207, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #ff4dcf;
+}
+
+.view-certificate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.view-certificate:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.show-more-btn {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #9ecc06 0%,#ff4dcf 100%);
+  border: 1px solid rgba(65, 179, 255, 0.5);
+  color: #000000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    width: 100%;
+    justify-content: center;
+  }
 }

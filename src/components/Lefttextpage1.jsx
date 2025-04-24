@@ -1,6 +1,7 @@
 // src/components/LeftTextPage1.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FiDownload } from 'react-icons/fi'; // Import the download icon
 import '../styles/page1.css';
 
 const LeftTextPage1 = () => {
@@ -63,7 +64,10 @@ const LeftTextPage1 = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
       >
-        <span>🚀 Download CV</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <FiDownload size={18} />
+          Download CV
+        </span>
       </motion.button>
     </div>
   );

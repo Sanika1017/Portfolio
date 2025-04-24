@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "../styles/ContactSection.css";
+import galaxy from "../images/galaxy.mp4";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
     try {
@@ -24,6 +25,12 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="contact-split">
+      <video className="contact-background-video" autoPlay loop muted playsInline>
+        <source src={galaxy} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="stars-overlay"></div>
+
       <div className="contact-left">
         <h2 className="contact-getintouch">GET IN TOUCH</h2>
         <h1 className="contact-title">Contact.</h1>
@@ -73,9 +80,7 @@ const ContactSection = () => {
       </div>
 
       <div className="contact-right">
-        <spline-viewer
-          url="https://prod.spline.design/1eksIt-1rkUo0MM0/scene.splinecode"
-        />
+        <spline-viewer url="https://prod.spline.design/1eksIt-1rkUo0MM0/scene.splinecode" />
       </div>
     </section>
   );

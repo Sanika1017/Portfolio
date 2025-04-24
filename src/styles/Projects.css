@@ -1,16 +1,36 @@
-.project-section {
-  padding: 80px 20px;
-  color: #ffffff;
-  text-align: center;
-  position: relative;
+.page2-wrapper {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
-  background: none; /* Removed radial gradient */
 }
 
-/* ❌ Removed stardust texture layer */
-.project-section::before,
-.project-section::after {
-  display: none;
+
+.project-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background-color: #000; 
+}
+
+.stars-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 200px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.5; }
 }
 
 .background-video {
@@ -20,109 +40,219 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
-  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
 }
 
 .section-title {
-  font-size: 3rem;
-  margin-bottom: 50px;
-  color: #a56eff;
-  text-shadow: 0 0 15px #b47bff, 0 0 30px #a56eff;
-  z-index: 1;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: transparent;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
   position: relative;
+  z-index: 2;
 }
 
 .project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .project-card {
-  perspective: 1000px;
-  width: 300px;
-  height: 250px;
-  border-radius: 15px;
-  transition: box-shadow 0.4s ease;
+  background: rgb(30, 29, 29);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 0 35px rgba(165, 110, 255, 0.4);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.card-inner {
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
   position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
-  border-radius: 15px;
+  margin-bottom: 1.5rem;
 }
 
-.project-card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
+.project-image {
   width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  overflow: hidden;
-  backface-visibility: hidden;
-  box-shadow: 0 0 20px rgba(165, 110, 255, 0.2);
-}
-
-.card-front img {
-  width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  border-radius: 15px;
-  transition: transform 0.5s ease;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-.project-card:hover .card-front img {
+.project-card:hover .project-image {
   transform: scale(1.05);
 }
 
-.card-back {
-  background: rgba(15, 10, 30, 0.95);
-  color: #0fffc2;
-  padding: 25px;
-  transform: rotateY(180deg);
+.project-stats {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-shadow: 0 0 12px #0fffc2;
-  border: 1px solid #0fffc2;
-  border-radius: 15px;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  border-radius: 20px;
 }
 
-.card-back h3 {
-  font-size: 1.7rem;
-  margin-bottom: 12px;
-  color: #a56eff;
-  text-shadow: 0 0 10px #b47bff;
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #41b3ff;
 }
 
-.card-back p {
-  font-size: 1.05rem;
+.card-body h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.project-description {
+  color: #ccc;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: #d1fff6;
+  margin-bottom: 1.5rem;
 }
 
-/* Responsive */
-@media (max-width: 1000px) {
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: rgba(65, 179, 255, 0.1);
+  color: #41b3ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(65, 179, 255, 0.3);
+}
+
+.project-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.duration-label {
+  color: #ff4dcf;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.github-link,
+.demo-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.github-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.demo-button {
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  color: #fff;
+  border: none;
+}
+
+.github-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.demo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(65, 179, 255, 0.3);
+}
+
+.view-more-button {
+  display: block;
+  margin: 4rem auto 0;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.view-more-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(65, 179, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
   .project-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-section {
+    padding: 4rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    margin: 0 auto;
   }
 }

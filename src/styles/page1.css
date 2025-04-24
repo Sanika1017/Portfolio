@@ -1,188 +1,21 @@
-/* src/styles/page1.css */
-
-
-/* src/styles/page1.css */
-
-.canvas-container {
-  height: 100vh;
-  width: 100vw;
-  background: radial-gradient(ellipse at center, #0b0c2a 0%, #050518 100%);
-  overflow: hidden;
+/* Main Section */
+.page1-section {
   position: relative;
-}
-
-.tooltip {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-  animation: fadeIn 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-
-/* src/styles/page1.css */
-
-.canvas-container {
-  height: 100vh;
-  width: 100vw;
-  background: radial-gradient(ellipse at center, #0b0c2a 0%, #050518 100%);
-  overflow: hidden;
-  position: relative;
-}
-
-.tooltip {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-  animation: fadeIn 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tooltip.show-always {
-  display: block !important;
-  background-color: #ffffff;
-  color: #000000;
-  font-weight: bold;
-  border: 1px solid #ccc;
-}
-
-/* src/styles/LeftTextPage1.css */
-
-.left-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 80vh;
-  margin-bottom: 300px;
-}
-
-.greeting {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #008bff;
-  margin: 0;
-}
-
-.name {
-  font-size: 7rem;
-  font-weight: 800;
-  margin: 0;
-  background:white;
-  background-size: 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 3s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
-.description {
-  font-size: 2.5rem;
-  color: white;
-  margin-top: 1rem;
-}
-
-.sub-description {
-  font-size: 1.5rem;
-  color: white;
-  margin-top: 0.8rem;
-}
-
-.skills {
-  font-size: 2.5rem;
-  color: #008bff;
-  margin-top: 1.2rem;
-}
-
-.download-btn {
-  margin-top: 2rem;
-  padding: 0.7rem ;
-  width: 280px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 50px;
-  background: linear-gradient(to right, #6b21a8, #6366f1, #6b21a8);
-  color: black;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-}
-
-.download-btn:active {
-  transform: scale(0.95);
-}
-
-
-/* styles/Rightimgpage1.css */
-.video-container {
+  min-height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0d0d2b, #1a1a4e);
+  color: #fff;
+  z-index: 975; /* Above Page2 (950), below Navbar (1000) */
 }
 
-.hero-video {
-  width: 90%;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  object-fit: cover;
-}
-
-/* page1.css */
-
-
-
+/* Background Styling */
 .page1-wrapper {
-
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  z-index: 0;
   overflow: hidden;
- 
 }
 
 .background-video {
@@ -192,36 +25,249 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  opacity: 0.25;
+  z-index: 0;
 }
 
-.page1-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 5%;
-  height: 100%;
-  color: white;
-}
-
-.right-img-container {
-  position: relative;
-  width: 50%;
-  height: 50%;
-  background-color: pink;
-  overflow: hidden;
-  border-radius: 12px; /* Optional, for smooth corners */
-}
-
-.right-bg-video {
+.stars-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.3; /* Adjust for desired visibility */
+  background: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-size: 200px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+  z-index: 1;
+}
+
+.stars-overlay::before,
+.stars-overlay::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+}
+
+.stars-overlay::before {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 15%;
+  background: radial-gradient(circle, rgba(65, 179, 255, 0.5), transparent);
+}
+
+.stars-overlay::after {
+  width: 400px;
+  height: 400px;
+  bottom: 20%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(255, 77, 207, 0.5), transparent);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.8; }
+}
+
+/* Content Container */
+.page1-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem; /* Start close to the top with minimal padding */
+  text-align: center; /* Center content horizontally */
+  margin-top: 10%;
+}
+
+/* Hero Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto; /* Ensure hero content is centered within page1-content */
+}
+
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.greeting-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff4dcf, #41b3ff);
+}
+
+.greeting {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #41b3ff;
+}
+
+.name {
+  font-size: 6rem;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(65, 179, 255, 0.5);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: #41b3ff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(65, 179, 255, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(65, 179, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.download-btn:active {
+  transform: scale(0.95);
+}
+
+.download-btn svg {
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page1-content {
+    padding: 2rem; /* Consistent padding */
+  }
+
+  .name {
+    font-size: 5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page1-content {
+    padding: 1.5rem; 
+    margin-top: 30%;/* Slightly reduced padding for smaller screens */
+  }
+
+  .name {
+    font-size: 4rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .download-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page1-content {
+    padding: 1rem; /* Minimal padding for mobile */
+    margin-top: 40%;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .greeting-line {
+    width: 30px;
+  }
+
+  .download-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
 }

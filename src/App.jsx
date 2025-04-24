@@ -9,6 +9,7 @@ import ContactSection from '../src/Pages/ContactSection';
 
 import CustomCursor from './components/Cursor';
 import SkillSection from './Pages/SkillsSection';
+import Footer from './Pages/Footer';
 
 
 const App = () => {
@@ -23,12 +24,13 @@ const App = () => {
       
      
       <section id="projects"><Projects /></section>
-      <section id="SkillSection"><SkillSection /></section>
+      <section id="skills"><SkillSection /></section>
 
     
       <section id="page5"><Page5 /></section>
      
       <section id="contact"><ContactSection /></section>
+      <Footer />
     </div>
   );
 };

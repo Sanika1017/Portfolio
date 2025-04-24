@@ -1,10 +1,74 @@
-/* ContactSplit.css */
-
+/* Contact section container */
 .contact-split {
+  position: relative;
   display: flex;
   min-height: 100vh;
-  background-color: #0a0e1a;
   color: #fff;
+  overflow: hidden;
+  background: black;
+}
+
+/* Background video */
+.contact-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Stars overlay */
+.stars-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-size: 200px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stars-overlay::before,
+.stars-overlay::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+}
+
+.stars-overlay::before {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(65, 179, 255, 0.5), transparent);
+}
+
+.stars-overlay::after {
+  width: 400px;
+  height: 400px;
+  bottom: 15%;
+  right: 25%;
+  background: radial-gradient(circle, rgba(255, 77, 207, 0.5), transparent);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.8; }
 }
 
 /* LEFT SIDE */
@@ -14,22 +78,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
 }
 
 .contact-getintouch {
   font-size: 1rem;
   letter-spacing: 2px;
-  color: #9f42f5;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(65, 179, 255, 0.3);
 }
 
 .contact-title {
   font-size: 3rem;
   margin-bottom: 32px;
   font-weight: bold;
-  text-shadow: 0 0 8px #9f42f5;
+  background: linear-gradient(135deg, #ff4dcf 0%, #41b3ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(65, 179, 255, 0.3);
 }
 
 .contact-form label {
@@ -37,6 +110,7 @@
   margin-bottom: 20px;
   font-weight: 500;
   font-size: 1rem;
+  color: #e0e0e0;
 }
 
 .contact-form input,
@@ -44,9 +118,9 @@
   width: 100%;
   padding: 12px 16px;
   margin-top: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: #e0e0e0;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -55,70 +129,117 @@
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #9f42f5;
-  box-shadow: 0 0 8px rgba(159,66,245,0.6);
+  border-color: #41b3ff;
+  box-shadow: 0 0 8px rgba(65, 179, 255, 0.6);
 }
 
 .contact-button {
   width: 100%;
   padding: 14px 0;
   margin-top: 16px;
-  background: linear-gradient(90deg, #9f42f5, #0ff);
+  background: linear-gradient(90deg, #ff4dcf, #41b3ff);
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(159,66,245,0.5);
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(65, 179, 255, 0.5);
 }
 
 .contact-status {
   margin-top: 16px;
   font-style: italic;
-  color: #0ff;
+  color: #41b3ff;
   text-align: center;
+  text-shadow: 0 0 5px rgba(65, 179, 255, 0.3);
 }
 
-/* RIGHT SIDE */
+/* RIGHT SIDE - Enlarged for mobile */
 .contact-right {
   flex: 1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  background: transparent;
+  padding: 40px;
 }
 
 .contact-right spline-viewer {
-  width: 100%;
-  height: 100%;
-}
-
-
-
-/* ContactSplit.css */
-
-/* …existing rules… */
-
-.contact-right {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  padding: 40px;    /* optional breathing room around the model */
-}
-
-.contact-right spline-viewer {
-  width: 80%;       /* shrink to 80% of the container */
-  height: 80%;      /* keep aspect in check */
-  max-width: 600px; /* cap its absolute size if you like */
+  width: 80%;
+  height: 80%;
+  max-width: 600px;
   max-height: 600px;
+}
+
+/* Responsive Design with Larger Right Side on Mobile */
+@media (max-width: 1024px) {
+  .contact-split {
+    flex-direction: column;
+  }
+
+  .contact-left {
+    padding: 40px;
+    min-height: 50vh;
+  }
+
+  .contact-right {
+    padding: 40px;
+    min-height: 50vh;
+  }
+
+  .contact-right spline-viewer {
+    width: 80%;
+    height: 80%;
+    max-width: 600px;
+    max-height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-left {
+    padding: 30px;
+    min-height: 50vh;
+  }
+
+  .contact-right {
+    padding: 30px;
+    min-height: 100vh; /* Larger on tablets */
+  }
+
+  .contact-right spline-viewer {
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    max-height: 800px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-left {
+    padding: 25px;
+    min-height: 55vh;
+  }
+
+  .contact-right {
+    padding: 25px;
+    min-height: 0vh; /* Largest on phones */
+  }
+
+  .contact-right spline-viewer {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 650px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
 }
